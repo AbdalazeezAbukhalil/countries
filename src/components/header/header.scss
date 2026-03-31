@@ -33,8 +33,19 @@ body {
 }
 .header-text {
     text-align: left;
-        margin: 20px 100px;
+    margin: 20px 20px;
+}
 
+@media (min-width: 768px) {
+    .header-text {
+        margin: 20px 40px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .header-text {
+        margin: 20px 100px;
+    }
 }
 
 .dark-mode-container{
@@ -42,13 +53,34 @@ body {
     align-items: center;
     justify-content: flex-end;
     border: none;
+
 }
 
 .dark-mode {
     text-align: right;
     gap: 0.5rem;
     font-weight: lighter;
-    margin: 20px 100px;
+    margin: 20px 20px;    cursor: pointer;
+
+}
+
+.no-highlight {
+  -webkit-user-select: none; 
+  -moz-user-select: none;    
+  -ms-user-select: none;     
+  user-select: none;  
+}
+
+@media (min-width: 768px) {
+    .dark-mode {
+        margin: 20px 40px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .dark-mode {
+        margin: 20px 100px;
+    }
 }
 
 .dark-mode-icon {

@@ -1,9 +1,33 @@
 .countries-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 50px 150px;
-    margin: 20px 100px;
-    padding-top: 50px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 20px;
+    padding-top: 20px;
+}
+
+@media (min-width: 640px) {
+    .countries-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin: 20px 20px;
+        padding-top: 30px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .countries-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px 100px;
+        margin: 20px 100px;
+        padding-top: 50px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .countries-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 .country-card {
