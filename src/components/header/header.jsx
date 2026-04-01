@@ -1,5 +1,5 @@
 import './header.scss'
-import { FiMoon } from 'react-icons/fi';
+import { IoMoonOutline } from "react-icons/io5";
 import { useState } from 'react'
 import { useEffect } from 'react'
 
@@ -26,7 +26,7 @@ function Header() {
         </div>
         <div className={darkMode ? 'dark' : ''}>
         
-        <h2 className='dark-mode no-highlight ' onClick={handledarkmode}><FiMoon className='dark-mode-icon' />{darkMode ? 'Light Mode' : 'Dark Mode'}</h2>
+        <h2 className='dark-mode no-highlight ' onClick={handledarkmode}><IoMoonOutline />{darkMode ? 'Light Mode' : 'Dark Mode'}</h2>
         </div>
 
         </div>

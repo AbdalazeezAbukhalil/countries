@@ -18,6 +18,7 @@
 body.dark {
   background-color: #121212;
   color: #f0f0f0;
+  justify-content: center;
 }
 
 body.dark .header-container {
@@ -48,20 +49,13 @@ body {
     }
 }
 
-.dark-mode-container{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    border: none;
-
-}
 
 .dark-mode {
-    text-align: right;
-    gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
     font-weight: lighter;
-    margin: 20px 20px;    cursor: pointer;
-
+    cursor: pointer;
 }
 
 .no-highlight {
@@ -81,9 +75,4 @@ body {
     .dark-mode {
         margin: 20px 100px;
     }
-}
-
-.dark-mode-icon {
-    width: 30px;
-    height: 30px;
 }
