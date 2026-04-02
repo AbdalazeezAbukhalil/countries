@@ -31,6 +31,7 @@ function Countries({ searchTerm, selectedRegion, modal, setModal }) {
 
   if (error) return <p>Error fetching countries</p>;
 
+//   add the conditions here for the modal itself as props instead of unmounting the whole component to render the modal consider using react portal
   if (selectedName && modalOpen) {
     setModal(true)
     return <Country selectedName={selectedName} setModalOpen={setModalOpen} setModal={setModal}/>;

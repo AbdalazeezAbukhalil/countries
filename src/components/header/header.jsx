@@ -10,6 +10,7 @@ function Header() {
         return saved ? saved === 'true' : false;
     });
     
+    // consider using context
     useEffect(() => {
         document.body.className = darkMode ? 'dark' : '';
         localStorage.setItem('darkMode', darkMode);
@@ -24,6 +25,8 @@ function Header() {
 
         <div className='dark-mode-container'>
         </div>
+
+        {/* why this is used ? aren't we handeling it above ? */}
         <div className={darkMode ? 'dark' : ''}>
         
         <h2 className='dark-mode no-highlight ' onClick={handledarkmode}><IoMoonOutline />{darkMode ? 'Light Mode' : 'Dark Mode'}</h2>

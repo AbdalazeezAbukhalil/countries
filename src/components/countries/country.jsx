@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 
 function Country({ selectedName, setModalOpen, setModal }) {
   const [country, setCountry] = useState({});
+//   no need for this, send the data in props or use context
   useEffect(() => {
       const getData = async () => {
         try {
