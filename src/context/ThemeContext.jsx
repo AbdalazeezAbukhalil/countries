@@ -9,7 +9,6 @@ export function ThemeProvider({ children }) {
     });
 
     useEffect(() => {
-        document.body.className = darkMode ? 'dark' : 'light';
         localStorage.setItem('darkMode', darkMode);
     }, [darkMode]);
 

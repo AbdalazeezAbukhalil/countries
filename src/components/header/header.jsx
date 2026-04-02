@@ -6,17 +6,14 @@ import { useTheme } from '../../context/ThemeContext';
 function Header() {
 
     const { darkMode, toggleDarkMode } = useTheme();
+
    
     return (
-        <div className={ styles.headerContainer}>
-        <h1 className= {styles.headerText }>Where is the world?</h1>
-
-        <div className={styles.darkModeContainer}>
-        </div>
-        
-        <h2 className={`${styles.darkMode} ${styles.noHighlight}`} onClick={toggleDarkMode}>
-            <IoMoonOutline />{darkMode ? 'Light Mode' : 'Dark Mode'}</h2>
-
+        <div className={`${styles.headerContainer} ${darkMode ? styles.dark : ''}`}>
+            <h1 className={styles.headerText}>Where is the world?</h1>
+            <h2 className={styles.darkMode} onClick={toggleDarkMode}>
+                <IoMoonOutline />{darkMode ? 'Light Mode' : 'Dark Mode'}
+            </h2>
         </div>
     )
 }

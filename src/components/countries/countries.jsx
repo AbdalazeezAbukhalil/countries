@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
 import { fetchAllCountries } from '../../services/Countries'; 
-import Country from './country';
+import Country from '../../../CountryPackage/src/country';
 import styles from './countries.module.scss';
+import { useTheme } from '../../context/ThemeContext';
 
 function Countries({ searchTerm, selectedRegion }) {
   const [countries, setCountries] = useState([]);
   const [error, setError] = useState(null);
-  const [selectedCountry, setSelectedCountry] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState({});
   const [modalOpen, setModalOpen] = useState(false);
+  const { darkMode } = useTheme();
 
   useEffect(() => {
     const getData = async () => {
@@ -45,7 +47,7 @@ function Countries({ searchTerm, selectedRegion }) {
           setModalOpen={setModalOpen} 
         />
       )}
-        <div className={ styles.countriesGrid }>
+        <div className={`${styles.countriesGrid} ${darkMode ? styles.dark : ''}`}>
           
             {filteredCountries.map((country, index) => (
                 <div key={index} className= { styles.countryCard } onClick={() =>{setSelectedCountry(country); setModalOpen(true);}}>
