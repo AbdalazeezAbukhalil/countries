@@ -1,33 +1,21 @@
-import './header.scss'
+import styles from './header.module.scss'
 import { IoMoonOutline } from "react-icons/io5";
-import { useState } from 'react'
-import { useEffect } from 'react'
+
+import { useTheme } from '../../context/ThemeContext';
 
 function Header() {
 
-    const [darkMode, setDarkMode] = useState(() => {
-        const saved = localStorage.getItem('darkMode');
-        return saved ? saved === 'true' : false;
-    });
-    
-    useEffect(() => {
-        document.body.className = darkMode ? 'dark' : '';
-        localStorage.setItem('darkMode', darkMode);
-    }, [darkMode]);
-
-    const handledarkmode = () => {
-        setDarkMode(!darkMode)
-    }
+    const { darkMode, toggleDarkMode } = useTheme();
+   
     return (
-        <div className='header-container'>
-        <h1 className='header-text'>Where is the world?</h1>
+        <div className={ styles.headerContainer}>
+        <h1 className= {styles.headerText }>Where is the world?</h1>
 
-        <div className='dark-mode-container'>
+        <div className={styles.darkModeContainer}>
         </div>
-        <div className={darkMode ? 'dark' : ''}>
         
-        <h2 className='dark-mode no-highlight ' onClick={handledarkmode}><IoMoonOutline />{darkMode ? 'Light Mode' : 'Dark Mode'}</h2>
-        </div>
+        <h2 className={`${styles.darkMode} ${styles.noHighlight}`} onClick={toggleDarkMode}>
+            <IoMoonOutline />{darkMode ? 'Light Mode' : 'Dark Mode'}</h2>
 
         </div>
     )

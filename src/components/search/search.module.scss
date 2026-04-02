@@ -1,3 +1,13 @@
+:global(body.dark) {
+  .search input,
+  .filter .select,
+  .filter li {
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+  }
+}
+
 .search {
   display: flex;
   flex-direction: column;
@@ -25,7 +35,7 @@
   padding: 15px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
   border: none;
-  border-radius: .3rem;
+  border-radius: 4.8px;
   background-color: white;
   color: #333;
 }
@@ -78,7 +88,7 @@ li {
     align-items: center;
   }
 
-  .regions-list {
+  .regionsList {
     position: absolute;
     top: 110%; 
     left: 0;
@@ -100,9 +110,3 @@ li {
   } 
 }
 
-.no-highlight {
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none; 
-}

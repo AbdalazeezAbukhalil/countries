@@ -1,3 +1,12 @@
+body {
+    --bg-primary: #ffffff;
+    --text-primary: #333;
+}
+body.dark {
+    --bg-primary: #121212;
+    --text-primary: #f0f0f0;
+}
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;

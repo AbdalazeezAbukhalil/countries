@@ -1,9 +1,9 @@
-import './search.scss'
+import styles from './search.module.scss'
 import Filter from '../dropdown/filter';
 function Search({ searchTerm, setSearchTerm, selectedRegion, setSelectedRegion }) {
 
   return (
-    <div className="search">
+    <div className={styles.search}>
       <input
         type="text"
         placeholder="Search for a country..."

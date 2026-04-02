@@ -1,45 +1,31 @@
-import { fetchCountryByName } from '../../services/Countries';
-import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
+import styles from './countries.module.scss';
 
-function Country({ selectedName, setModalOpen, setModal }) {
-  const [country, setCountry] = useState({});
-  useEffect(() => {
-      const getData = async () => {
-        try {
-          const data = await fetchCountryByName(selectedName); 
-          setCountry(data[0]);
-        } catch (err) {
-          setError(err);
-        }
-      };
-      getData();
-    }, []);
+function Country({ selectedCountry, setModalOpen }) {
 
 const handleClick = () => {
-    setModal(false); 
     setModalOpen(false);
  };
 
-
-    return (
-        <div className='country-card' onClick={handleClick}>
-            <div className='country-info'>
-                <h3>{country.name?.common}</h3>
-                <div className='country-details'>
-                    <h4>Population: {country.population?.toLocaleString()}</h4>
-                    <h4>Region: {country.region}</h4>
-                    <h4>Capital: {country.capital ? country.capital[0] : 'N/A'}</h4>
-                    <h4>subregion: {country.subregion}</h4>
-                    <h4>area: {country.area}</h4>
-                    <h4>fifa: {country.fifa}</h4>
-                    <h4>timezones: {country.timezones}</h4>
-                    <h4>googleMaps: {country.maps?.googleMaps}</h4>
-                    <h4>openStreetMaps: {country.maps?.openStreetMaps}</h4>
-                    <img className='modal-image' src={country.flags?.svg} alt={country.name?.common} />
+    return createPortal(
+        <div className={ styles.modalContainer } onClick={handleClick}>
+            <div className={ styles.modalInfo }>
+                <div className={ styles.countryInfo }>
+                    {selectedCountry && (
+                        <>
+                            <h3>{selectedCountry.name?.common}</h3>
+                            <div className={ styles.countryDetails }>
+                                <h4>Population: {selectedCountry.population?.toLocaleString()}</h4>
+                                <h4>Region: {selectedCountry.region}</h4>
+                                <h4>Capital: {selectedCountry.capital ? selectedCountry.capital[0] : 'N/A'}</h4>
+                                <img className={ styles.modalImage } src={selectedCountry.flags?.svg} alt={selectedCountry.name?.common} />
+                            </div>
+                        </>
+                    )}
                 </div>
             </div>
-        </div>
+        </div>,
+        document.body
     )
 }
-
 export default Country
