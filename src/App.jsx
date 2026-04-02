@@ -3,17 +3,19 @@ import { useState } from 'react'
 import Countries from './components/countries/countries'
 import Header from './components/header/header'
 import Search from './components/search/search'
-function App() {
+import { useTheme } from './context/ThemeContext'
 
+function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRegion, setSelectedRegion] = useState('');
-  const [modal, setModal] = useState(false);
+  const { darkMode } = useTheme();
+
   return (
-    <>
-     <Header selectedRegion={selectedRegion} setSelectedRegion={setSelectedRegion}  />
-     { modal ? <div style={{padding: '60px'}}></div> : <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} selectedRegion={selectedRegion} setSelectedRegion={setSelectedRegion}/> }
-      <Countries searchTerm={searchTerm} selectedRegion={selectedRegion} modal={modal} setModal= {setModal}/>
-    </>
+    <div className={`appWrapper ${darkMode ? 'dark' : 'light'}`}>
+      <Header />
+      <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} selectedRegion={selectedRegion} setSelectedRegion={setSelectedRegion}/>
+      <Countries searchTerm={searchTerm} selectedRegion={selectedRegion}/>
+    </div>
   )
 }
 

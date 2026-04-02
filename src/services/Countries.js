@@ -11,8 +11,3 @@ export const fetchAllCountries = async (fieldsArray = []) => {
   return response.data; 
 };
 
-export const fetchCountryByName = async (name) => {
-  const response = await axios.get(`${url}/name/${name}`);
-  return response.data;
-};
-

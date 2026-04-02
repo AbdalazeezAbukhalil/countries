@@ -1,0 +1,21 @@
+{
+  "name": "countrypackage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "build": "tsup src/index.js --format esm,cjs --dts --minify --clean --inject-style"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "peerDependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "sass": "^1.98.0",
+    "tsup": "^8.5.1"
+  }
+}

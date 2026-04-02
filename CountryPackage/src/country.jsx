@@ -1,14 +1,16 @@
 import { createPortal } from 'react-dom';
 import styles from './countries.module.scss';
+import { useTheme } from '../../src/context/ThemeContext';
 
 function Country({ selectedCountry, setModalOpen }) {
+    const { darkMode } = useTheme();
 
-const handleClick = () => {
-    setModalOpen(false);
- };
+    const handleClick = () => {
+        setModalOpen(false);
+    };
 
     return createPortal(
-        <div className={ styles.modalContainer } onClick={handleClick}>
+        <div className={`${styles.modalContainer} ${darkMode ? styles.dark : ''}`} onClick={handleClick}>
             <div className={ styles.modalInfo }>
                 <div className={ styles.countryInfo }>
                     {selectedCountry && (

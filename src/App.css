@@ -1,3 +1,18 @@
+.appWrapper {
+    --bg-primary: #ffffff;
+    --text-primary: #333;
+    background-color: #ffffff;
+    color: #333;
+    min-height: 100vh;
+}
+
+.appWrapper.dark {
+    --bg-primary: #121212;
+    --text-primary: #f0f0f0;
+    background-color: #121212;
+    color: #f0f0f0;
+}
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;

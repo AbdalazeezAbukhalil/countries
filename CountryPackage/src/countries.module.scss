@@ -1,4 +1,4 @@
-.countries-grid {
+.countriesGrid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
@@ -7,7 +7,7 @@
 }
 
 @media (min-width: 640px) {
-    .countries-grid {
+    .countriesGrid {
         grid-template-columns: repeat(2, 1fr);
         gap: 30px;
         margin: 20px 20px;
@@ -16,7 +16,7 @@
 }
 
 @media (min-width: 1024px) {
-    .countries-grid {
+    .countriesGrid {
         grid-template-columns: repeat(3, 1fr);
         gap: 40px 100px;
         margin: 20px 100px;
@@ -25,23 +25,18 @@
 }
 
 @media (min-width: 1280px) {
-    .countries-grid {
+    .countriesGrid {
         grid-template-columns: repeat(4, 1fr);
     }
 }
 
-.country-card {
-    border-radius: 0.5rem; 
+.countryCard {
+    border-radius: 8px; 
     box-shadow: 0 2px 8px rgba(34, 23, 23, 0.2);
     background-color: #fff;
 }
 
-body.dark .country-card {
-    background-color: #2a2a2a;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-}
-
-.country-image {
+.countryImage {
     width: 100%;
     height: 150px;
 
@@ -49,17 +44,17 @@ body.dark .country-card {
         width: 100%;
         height: 100%;
         object-fit:cover;
-        border-top-left-radius: .5rem;
-        border-top-right-radius: .5rem;        
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;        
     }
 }
 
-.modal-image{
+.modalImage{
     height: 100px;
     margin: 20px;
 }
 
-.country-info {
+.countryInfo {
     padding: 20px;
     text-align: left;
     margin-bottom: 20px;
@@ -77,11 +72,26 @@ body.dark .country-card {
     }
 }
 
-body.dark .country-info h3 {
-    color: #f0f0f0;
+.modalContainer {
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 666;
+
+    &.dark .modalInfo {
+        background-color: #2a2a2a;
+    }
 }
 
-body.dark .country-info h4 {
-    color: #b0b0b0;
+.modalInfo {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    color: var(--text-primary);
 }
-

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../search/search.scss';
+import styles from '../search/search.module.scss';
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { MdKeyboardArrowUp } from "react-icons/md";
 
@@ -13,8 +13,8 @@ function Filter({ selectedRegion, setSelectedRegion }) {
   };
 
   return (
-    <div className="filter no-highlight">
-      <div className="select" onClick={() => setIsOpen(!isOpen)}>
+    <div className= {`${styles.filter} ${styles.noHighlight} `}>
+      <div className={ styles.select } onClick={() => setIsOpen(!isOpen)}>
         <span>
           {selectedRegion || "Filter by Region"}
         </span>
@@ -23,12 +23,12 @@ function Filter({ selectedRegion, setSelectedRegion }) {
       </div>
 
       {isOpen && (
-        <ul className="regions-list">
+        <ul className={ styles.regionsList }>
           {regions.map((region) => (
             <li 
               key={region} 
               onClick={() => handleSelect(region)}
-              className={selectedRegion === region ? 'active' : ''}
+              className={selectedRegion === region ? `${styles.active}` : ''}
             >
               {region}
             </li>
